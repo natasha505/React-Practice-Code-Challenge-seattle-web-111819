@@ -9,7 +9,8 @@ class App extends Component {
 
   state = {
     allSushi: [],
-    currentSushi: []
+    currentSushi: [],
+    wallet: 100
   }
 
   getSushis = () => {
@@ -20,18 +21,18 @@ class App extends Component {
   }
 
   getFourSushi = () => {
-    let fourSushi = this.state.allSushi.splice(0, 4)
-    this.setState({
-      currentSushi: fourSushi
+    this.setState(prevState => {
+      return {
+        allSushi: prevState.allSushi.slice(4),
+        currentSushi: prevState.allSushi.slice(0, 4)
+      }
     })
   }
 
-  handleClick = () => {
-  //find plate, remove plate, 
-
+  onSushiClick = () => {
+    //onclick delete this sushi
+    
   }
-
-
 
   componentDidMount() {
     this.getSushis();
@@ -41,7 +42,7 @@ class App extends Component {
     return (
       <div className="app">
         {console.log(this.state.currentSushi, "App:Render")}
-        <SushiContainer fourSushi={this.state.currentSushi}  handleClick={this.handleClick} />
+        <SushiContainer fourSushi={this.state.currentSushi}  onGetFourSushi={this.getFourSushi}  onSushiClick={this.onSushiClick}/>
         <Table />
       </div>
     );

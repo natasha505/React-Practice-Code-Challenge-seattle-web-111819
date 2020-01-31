@@ -7,7 +7,7 @@ class SushiContainer extends Component  {
 
   renderSushi = () => {
     return this.props.fourSushi.map(sushi => {
-      return < Sushi sushi={sushi} handleClick={this.props.handleClick}/>
+      return < Sushi sushi={sushi} onSushiClick={this.props.onSushiClick}/>
     })
   }
 
@@ -18,7 +18,7 @@ class SushiContainer extends Component  {
       <Fragment>
         <div className="belt">
           {this.renderSushi()}
-        <MoreButton handleClick={this.handleClick}/>
+        <MoreButton onGetFourSushi={this.props.onGetFourSushi}/>
         </div>
       </Fragment>
     )

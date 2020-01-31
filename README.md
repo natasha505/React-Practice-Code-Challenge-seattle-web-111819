@@ -1,3 +1,14 @@
+      {
+        /* tell me if this sushi has been eaten! */
+        true ?
+          null
+        :
+          <img src={props.sushi.img_url} width="100%" />
+      }
+
+
+
+
 # Mod 4 Practice Code Challenge: Sushi Saga
 
 Welcome to Sushi Saga, where your journey to sushi is only just beginning!
