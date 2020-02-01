@@ -7,7 +7,7 @@ const Sushi = (props) => {
   return (
     <div className="sushi">
       <div className="plate" 
-        onClick={ (e) => props.onSushiClick(props.sushi), console.log(props.sushi)}>
+        onClick={ () => props.onSushiClick(props.sushi)}>
 
           <img src={props.sushi.img_url} width="100%" />
          
@@ -20,3 +20,11 @@ const Sushi = (props) => {
 }
 
 export default Sushi 
+
+// {
+//   /* tell me if this sushi has been eaten! */
+//   true ?
+//     null
+//   :
+//     <img src={props.sushi.img_url} width="100%" />
+// }

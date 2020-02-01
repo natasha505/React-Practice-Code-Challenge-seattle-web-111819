@@ -29,9 +29,19 @@ class App extends Component {
     })
   }
 
-  onSushiClick = () => {
+  onSushiClick = (eatenSushi) => {
     //onclick delete this sushi
-    
+    console.log(eatenSushi.price)
+    if (eatenSushi.price > this.state.wallet ) {
+        alert("You don't have enough money!")
+    } else {
+      this.setState({
+        currentSushi: this.state.currentSushi.filter(sushi => sushi.id !== eatenSushi.id),
+        wallet: this.state.wallet - eatenSushi.price
+      })
+
+    }
+
   }
 
   componentDidMount() {
@@ -41,12 +51,14 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        {console.log(this.state.currentSushi, "App:Render")}
+        {console.log(this.state.wallet)}
         <SushiContainer fourSushi={this.state.currentSushi}  onGetFourSushi={this.getFourSushi}  onSushiClick={this.onSushiClick}/>
-        <Table />
+        <Table  wallet={this.state.wallet} />
       </div>
     );
   }
 }
 
 export default App;
+
+// {console.log(this.state.currentSushi, "App:Render")}
